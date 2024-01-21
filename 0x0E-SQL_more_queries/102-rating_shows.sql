@@ -1,13 +1,8 @@
--- Connect to MySQL server
--- mysql -hlocalhost -uroot -p your_database_name
-
--- Use the specified database
-USE hbtn_0d_tvshows_rate;
-
--- List all shows by their rating sum
-SELECT tv_shows.title, SUM(ratings.rating) AS rating_sum
+-- script that lists all shows without the genre Comedy in the database
+-- hbtn_0d_tvshows.
+SELECT tv_shows.title, SUM(tv_show_ratings.rate) AS rating -- Query to join tables
 FROM tv_shows
-LEFT JOIN ratings ON tv_shows.id = ratings.show_id
+JOIN tv_show_ratings
+     ON tv_show_ratings.show_id = tv_shows.id
 GROUP BY tv_shows.title
-ORDER BY rating_sum DESC;
-
+ORDER BY rating DESC;

@@ -1,12 +1,5 @@
--- Connect to MySQL server
--- mysql -hlocalhost -uroot -p hbtn_0d_usa
-
--- Use the specified database
-USE hbtn_0d_usa;
-
--- List all cities with corresponding state names
-SELECT cities.id, cities.name, states.name AS state_name
+-- script that lists all cities contained in database hbtn_0d_usa.
+SELECT cities.id, cities.name, states.name
 FROM cities
-JOIN states ON cities.state_id = states.id
-ORDER BY cities.id ASC;
-
+INNER JOIN states ON cities.state_id=states.id
+ORDER BY cities.id
